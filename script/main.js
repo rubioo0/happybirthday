@@ -1,7 +1,7 @@
 // Countdown Timer
 const countdownTimer = () => {
-    const targetTime = new Date(new Date().getTime() + 10000).getTime();
-    // const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+    // const targetTime = new Date(new Date().getTime() + 10000).getTime();
+    const targetTime = new Date("February 25, 2025 00:00:10").getTime();
     const countdownElement = document.getElementById("countdown");
     const timerElement = document.getElementById("timer");
 
@@ -31,8 +31,8 @@ countdownTimer(); // Start countdown on page load
 
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
-    const targetTime = new Date(new Date().getTime() + 10000).getTime();
-    // const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+    // const targetTime = new Date(new Date().getTime() + 10000).getTime();
+    const targetTime = new Date("February 25, 2025 00:00:10").getTime();
     const currentTime = new Date().getTime();
     const delay = targetTime - currentTime;
 

@@ -11,6 +11,18 @@ body {
   visibility: hidden;
 }
 
+
+#countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+
 .container {
   height: 100vh;
   margin: 0 auto;
@@ -207,6 +219,7 @@ body {
   font-size: 3em;
   margin: 0;
   text-transform: uppercase;
+  white-space: normal;
 }
 
 .wish h5 {
@@ -266,6 +279,7 @@ body {
 
   .idea-5 span {
     display: block;
+    white-space: normal;
   }
 
   .idea-6 span {
@@ -277,9 +291,7 @@ body {
     width: 50px;
   }
 
-  .wish-hbd {
-    font-size: 2.2em;
-  }
+ 
 
   .wish h5 {
     font-size: 1.4rem;

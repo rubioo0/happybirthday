@@ -1,22 +1,74 @@
+// Countdown Timer
+const countdownTimer = () => {
+    const targetTime = new Date(new Date().getTime() + 10000).getTime();
+    // const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+    const countdownElement = document.getElementById("countdown");
+    const timerElement = document.getElementById("timer");
+
+    const updateTimer = () => {
+        const currentTime = new Date().getTime();
+        const remainingTime = targetTime - currentTime;
+
+        if (remainingTime > 0) {
+            const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+            const seconds = Math.floor((remainingTime / 1000) % 60);
+            timerElement.innerHTML = `${hours}г ${minutes}хв ${seconds}с`;
+        } else {
+            clearInterval(timerInterval);
+            countdownElement.style.display = "none"; // Hide the entire countdown section
+        }
+    };
+
+    updateTimer(); // Update immediately
+    const timerInterval = setInterval(updateTimer, 1000); // Update every second
+};
+
+countdownTimer(); // Start countdown on page load
+
+
+
+
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
-    Swal.fire({
-        title: 'Do you want to play music in the background?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.song').play();
-            animationTimeline();
-        } else {
-            animationTimeline();
-        }
-    });
+    const targetTime = new Date(new Date().getTime() + 10000).getTime();
+    // const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+    const currentTime = new Date().getTime();
+    const delay = targetTime - currentTime;
+
+    if (delay > 0) {
+        setTimeout(() => {
+            Swal.fire({
+                title: 'Хочеш музику?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Так',
+                cancelButtonText: 'Ні',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const audioElement = document.querySelector('.song');
+                    
+                    // Stop any currently playing audio
+                    audioElement.pause();
+                    audioElement.currentTime = 0; // Reset to start
+
+                    // Play the new song
+                    audioElement.play();
+
+                    animationTimeline();
+                } else {
+                    animationTimeline();
+                }
+            });
+        }, delay);
+    } else {
+        console.log("The event time has already passed.");
+    }
 });
+
+
 
 
 // animation timeline
@@ -269,4 +321,6 @@ const animationTimeline = () => {
     replyBtn.addEventListener("click", () => {
         tl.restart();
     });
+
+    
 }

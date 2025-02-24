@@ -33,6 +33,7 @@ countdownTimer(); // Start countdown on page load
 window.addEventListener('load', () => {
     // const targetTime = new Date(new Date().getTime() + 10000).getTime();
     const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+    // added time
     const currentTime = new Date().getTime();
     const delay = targetTime - currentTime;
 

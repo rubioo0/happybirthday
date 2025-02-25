@@ -1,30 +1,30 @@
-// Countdown Timer
-const countdownTimer = () => {
-    // const targetTime = new Date(new Date().getTime() + 10000).getTime();
-    const targetTime = new Date("February 25, 2025 00:00:10").getTime();
-    const countdownElement = document.getElementById("countdown");
-    const timerElement = document.getElementById("timer");
+// // Countdown Timer
+// const countdownTimer = () => {
+//     // const targetTime = new Date(new Date().getTime() + 10000).getTime();
+//     const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+//     const countdownElement = document.getElementById("countdown");
+//     const timerElement = document.getElementById("timer");
 
-    const updateTimer = () => {
-        const currentTime = new Date().getTime();
-        const remainingTime = targetTime - currentTime;
+//     const updateTimer = () => {
+//         const currentTime = new Date().getTime();
+//         const remainingTime = targetTime - currentTime;
 
-        if (remainingTime > 0) {
-            const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
-            const seconds = Math.floor((remainingTime / 1000) % 60);
-            timerElement.innerHTML = `${hours}г ${minutes}хв ${seconds}с`;
-        } else {
-            clearInterval(timerInterval);
-            countdownElement.style.display = "none"; // Hide the entire countdown section
-        }
-    };
+//         if (remainingTime > 0) {
+//             const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+//             const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+//             const seconds = Math.floor((remainingTime / 1000) % 60);
+//             timerElement.innerHTML = `${hours}г ${minutes}хв ${seconds}с`;
+//         } else {
+//             clearInterval(timerInterval);
+//             countdownElement.style.display = "none"; // Hide the entire countdown section
+//         }
+//     };
 
-    updateTimer(); // Update immediately
-    const timerInterval = setInterval(updateTimer, 1000); // Update every second
-};
+//     updateTimer(); // Update immediately
+//     const timerInterval = setInterval(updateTimer, 1000); // Update every second
+// };
 
-countdownTimer(); // Start countdown on page load
+// countdownTimer(); // Start countdown on page load
 
 
 
@@ -32,13 +32,12 @@ countdownTimer(); // Start countdown on page load
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
     // const targetTime = new Date(new Date().getTime() + 10000).getTime();
-    const targetTime = new Date("February 25, 2025 00:00:10").getTime();
-    // added time
-    const currentTime = new Date().getTime();
-    const delay = targetTime - currentTime;
+    // const targetTime = new Date("February 25, 2025 00:00:10").getTime();
+    // const currentTime = new Date().getTime();
+    // const delay = targetTime - currentTime;
 
-    if (delay > 0) {
-        setTimeout(() => {
+    // if (delay > 0) {
+    //     setTimeout(() => {
             Swal.fire({
                 title: 'Хочеш музику?',
                 icon: 'warning',
@@ -57,17 +56,10 @@ window.addEventListener('load', () => {
 
                     // Play the new song
                     audioElement.play();
-
-                    animationTimeline();
-                } else {
-                    animationTimeline();
                 }
+                    animationTimeline();
             });
-        }, delay);
-    } else {
-        console.log("The event time has already passed.");
-    }
-});
+        });
 
 
 
